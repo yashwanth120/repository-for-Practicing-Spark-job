@@ -12,7 +12,7 @@ object dataframe extends App{
   val rdd2=spark.sparkContext.parallelize(list2)
   val columns2 = Seq("ID", "Name")
   val df2 = spark.createDataFrame(rdd2).toDF(columns2: _*)
-  val result1=df1.join(df2,Seq("ID"),"inner")
-  result1.show()
-
+  val result=df1.join(df2,Seq("ID"),"inner")
+  println("manoj")
+  result.show()
 }
