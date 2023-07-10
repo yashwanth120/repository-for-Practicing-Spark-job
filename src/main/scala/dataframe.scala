@@ -14,4 +14,5 @@ object dataframe extends App{
   val df2 = spark.createDataFrame(rdd2).toDF(columns2: _*)
   val result=df1.join(df2,Seq("ID"),"inner")
   result.show()
+
 }
