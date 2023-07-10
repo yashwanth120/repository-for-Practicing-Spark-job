@@ -13,6 +13,7 @@ object dataframe extends App{
   val columns2 = Seq("ID", "Name")
   val df2 = spark.createDataFrame(rdd2).toDF(columns2: _*)
   val result=df1.join(df2,Seq("ID"),"inner")
+  println("Spark project sample pushed to GIT")
   println("Pushed to GIT again....again.....")
   result.show()
 }
