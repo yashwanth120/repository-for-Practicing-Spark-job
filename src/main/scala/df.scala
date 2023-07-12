@@ -1,4 +1,4 @@
-import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
+import org.apache.spark.sql.{DataFrame, SparkSession}
 
 object df extends App {
   val spark = SparkSession.
@@ -12,5 +12,7 @@ object df extends App {
 
   val df: DataFrame = spark.createDataFrame(data).toDF("name", "age")
 
+
   df.show()
-}
+
+  }
