@@ -1,0 +1,16 @@
+import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
+
+object df extends App {
+  val spark = SparkSession.
+    builder().master("local").appName("dataframe").getOrCreate()
+
+  val data = Seq(
+    ("manoj", 20),
+    ("kumar", 21),
+    ("reddy", 22)
+  )
+
+  val df: DataFrame = spark.createDataFrame(data).toDF("name", "age")
+
+  df.show()
+}
