@@ -7,10 +7,9 @@ object df3 extends App {
   import spark.implicits._
 
   val columns = Seq("language", "users_count")
-  val data = Seq(("Java", "200"), ("Python", "100"), ("Scala", "300"))
 
-val df1= data.toDF()
-  df1.show()
+
+
 
   val numbers = List(1, 2, 3, 4)
   val doubledNumbers = numbers.map(_ * 2)
@@ -18,9 +17,12 @@ val df1= data.toDF()
   df2.show()
 
 
-  val flatdf = columns.flatMap(_.toUpperCase())
+  val flatMap = columns.flatMap(_.toUpperCase())
+   val map= columns.map(_.toUpperCase)
+  println("map"+map)
+  println("flatmap"+flatMap)
 
-  println("flatmap"+flatdf)
+
   }
 
 

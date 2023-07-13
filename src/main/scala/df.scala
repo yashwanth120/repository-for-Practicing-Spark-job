@@ -1,7 +1,6 @@
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 object df extends App {
-  def flatMap(function: Nothing => Any) = ???
 
   val spark = SparkSession.
     builder().master("local").appName("dataframe").getOrCreate()
