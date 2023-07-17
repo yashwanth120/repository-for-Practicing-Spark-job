@@ -2,6 +2,7 @@ package rockthejvm
 import org.apache.spark.sql.catalyst.dsl.expressions.{DslAttr, StringToAttributeConversionHelper}
 import org.apache.spark.sql.functions.{avg, col, count, countDistinct, max, mean, min, stddev, sum}
 import org.apache.spark.sql.{DataFrame, SparkSession, expressions}
+import rockthejvm.aggregations.director_stats
 
 import scala.language.postfixOps
 
@@ -46,7 +47,10 @@ object aggregations extends App {
   us_gross_sd.show()
   us_gross_mean.show()
 
-  val director_stats= moviesDF1
-    .select(avg(col("IMDB_Rating") and avg(col("US_Gross"))
-    director_stats.show()
+  val director_stats = moviesDF1.groupBy("Director")
+    .agg(
+      avg(col("IMDB_Rating").as("Average_rating") ),
+      sum(col("US_Gross").as ("gross"))
+    ).show()
+
 }
