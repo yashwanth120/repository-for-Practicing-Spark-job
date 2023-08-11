@@ -1,6 +1,6 @@
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
-object df3 extends App {
+object map extends App {
   val spark = SparkSession.
     builder().master("local").appName("map").getOrCreate()
 

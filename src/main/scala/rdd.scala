@@ -16,6 +16,7 @@ object RDDExample {
     println("Sum of elements" + sum)
 
 
+
     sc.stop()
   }
 }

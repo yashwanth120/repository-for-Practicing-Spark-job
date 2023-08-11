@@ -48,6 +48,25 @@ val distcount= mydf.select("Origin").distinct()
 
   }
 
-filterdf.write.format("src/main/resources/japancars.txt")
+filterdf.write.format("src/main/resources/japancars.json")
+
+
+
+  val data= List(
+    ("apple", 3),
+    ("orange", 5),
+    ("apple", 2),
+    ("banana", 4),
+    ("orange", 2))
+  val rdd = spark.sparkContext.parallelize(data)
+  val rdd2=spark.sparkContext.parallelize(data)
+val countbykey=rdd.countByKey()
+  println(countbykey)
+
+  val reducebykey= rdd2.reduceByKey((x,y)=> x+y)
+  reducebykey.collect().foreach(println)
+
+
+
 
 }
